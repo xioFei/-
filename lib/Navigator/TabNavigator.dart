@@ -2,6 +2,9 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_trip/Pages/HomePage.dart';
+import 'package:flutter_trip/Pages/MyPage.dart';
+import 'package:flutter_trip/Pages/SearchPage.dart';
+import 'package:flutter_trip/Pages/TrealPage.dart';
 
 class TabNavigator extends StatefulWidget{
   @override
@@ -24,7 +27,9 @@ class _TabNavigatorState extends State<TabNavigator>{
         controller: _controller,
         children: <Widget>[
           HomePage(),
-          HomePage(),
+          SearchPage(),
+          TrealPage(),
+          MyPage()
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -34,6 +39,7 @@ class _TabNavigatorState extends State<TabNavigator>{
               _selectIndex = index;
             });
         },
+        type: BottomNavigationBarType.fixed,
         currentIndex: _selectIndex,
         items: [
           BottomNavigationBarItem(
@@ -45,6 +51,16 @@ class _TabNavigatorState extends State<TabNavigator>{
             label: '搜索',
             icon: Icon(Icons.search, color: _defaultColor),
             activeIcon: Icon(Icons.search, color: _selectColor),
+          ),
+          BottomNavigationBarItem(
+            label: '旅拍',
+            icon: Icon(Icons.photo, color: _defaultColor),
+            activeIcon: Icon(Icons.photo, color: _selectColor),
+          ),
+          BottomNavigationBarItem(
+            label: '我的',
+            icon: Icon(Icons.account_circle, color: _defaultColor),
+            activeIcon: Icon(Icons.account_circle, color: _selectColor),
           ),
         ],
       ),
