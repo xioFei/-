@@ -11,7 +11,7 @@ class _TrealPageState extends State<TrealPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(""),
+        child: Text("旅拍"),
       ),
     );
   }

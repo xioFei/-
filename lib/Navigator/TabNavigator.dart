@@ -1,20 +1,17 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_trip/Pages/HomePage.dart';
 import 'package:flutter_trip/Pages/MyPage.dart';
 import 'package:flutter_trip/Pages/SearchPage.dart';
 import 'package:flutter_trip/Pages/TrealPage.dart';
 
-class TabNavigator extends StatefulWidget{
+class TabNavigator extends StatefulWidget {
   @override
   _TabNavigatorState createState() => _TabNavigatorState();
 }
 
-class _TabNavigatorState extends State<TabNavigator>{
+class _TabNavigatorState extends State<TabNavigator> {
   final _defaultColor = Colors.grey;
   final _selectColor = Colors.blue;
-  final _fontSize = 14;
   int _selectIndex = 0;
   final _controller = PageController(
     initialPage: 0,
@@ -25,19 +22,14 @@ class _TabNavigatorState extends State<TabNavigator>{
     return Scaffold(
       body: PageView(
         controller: _controller,
-        children: <Widget>[
-          HomePage(),
-          SearchPage(),
-          TrealPage(),
-          MyPage()
-        ],
+        children: <Widget>[HomePage(), SearchPage(), TrealPage(), MyPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index){
-            _controller.jumpToPage(index);
-            setState(() {
-              _selectIndex = index;
-            });
+        onTap: (index) {
+          _controller.jumpToPage(index);
+          setState(() {
+            _selectIndex = index;
+          });
         },
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectIndex,
