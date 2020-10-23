@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_trip/httpUtils/API.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,6 +23,8 @@ class _HomePageState extends State<HomePage> {
         _tabOpacity = 0;
       }else if (alpha > 1){
         _tabOpacity = 1;
+       final res = API.visitOrderList(122345);
+       print("object" + res.toString());
       }else{
         _tabOpacity = alpha;
       }
